@@ -1,0 +1,10 @@
+# Prevent thos files from downloading as zip
+.gitattributes export-ignore
+.gitignore export-ignore
+
+# Line endings normalization
+*   text=auto
+
+# Diff help
+*.html diff=html
+*.css diff=css
