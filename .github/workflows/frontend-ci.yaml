@@ -1,0 +1,15 @@
+name: "Frontend"
+
+on:
+  push:
+    paths:
+      - "client/**"
+
+jobs:
+  build_job:
+    name: Build in docker
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker build -t hermes-front client/Dockerfile
