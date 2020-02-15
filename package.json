@@ -1,0 +1,28 @@
+{
+  "name": "hermes",
+  "description": "Web application designed for easy and collaborative markdown files editing.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madetara/hermes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madetara/hermes/issues"
+  },
+  "homepage": "https://github.com/madetara/hermes#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "husky": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './node_modules/@commitlint/config-conventional/index.js'"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
