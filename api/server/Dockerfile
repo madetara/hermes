@@ -1,0 +1,14 @@
+FROM node:13.8 as build
+
+WORKDIR /app
+COPY package.json /app
+COPY package-lock.json /app
+
+RUN npm install
+
+COPY . /app
+RUN npm run build
+
+EXPOSE 80
+
+CMD ["node", "/app/dist"]
