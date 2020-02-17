@@ -1,0 +1,27 @@
+name: "Backend CI"
+
+on:
+  push:
+    paths:
+      - "api/server/**"
+      - ".github/workflows/backend-ci.yaml"
+
+jobs:
+  eslint_job:
+    runs-on: ubuntu-18.04
+    name: Check ESLint
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "13.8"
+      - run: npm i eslint
+      - run: api/server/node_modules/eslint/bin/eslint.js api/server/src/**/*.ts
+
+  build_job:
+    runs-on: ubuntu-18.04
+    name: Build image
+    needs: eslint_job
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t hermes-server --target build api/server
