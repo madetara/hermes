@@ -15,8 +15,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "13.8"
-      - run: npm i eslint
-      - run: api/server/node_modules/eslint/bin/eslint.js api/server/src/**/*.ts
+      - name: Install ESLint
+        run: npm i eslint
+        working-directory: api/server
+      - name: Run ESLint
+        run: node_modules/eslint/bin/eslint.js src/**/*.ts
+        working-directory: api/server
 
   build_job:
     runs-on: ubuntu-18.04
@@ -24,4 +28,5 @@ jobs:
     needs: eslint_job
     steps:
       - uses: actions/checkout@v2
-      - run: docker build -t hermes-server --target build api/server
+      - name: Build image
+        run: docker build -t hermes-server --target build api/server

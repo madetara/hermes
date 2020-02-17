@@ -21,5 +21,10 @@ module.exports = {
     env: {
         "node": true,
         "es6": true
+    },
+    "rules": {
+        "node/no-missing-import": ["error", {
+            "tryExtensions": [".js", ".json", ".node", ".ts"]
+        }]
     }
 };
