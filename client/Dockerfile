@@ -1,6 +1,4 @@
-FROM node:13.8
-
-RUN npm install -g webpack webpack-cli
+FROM node:13.8 as build
 
 WORKDIR /app
 COPY package.json /app
@@ -9,3 +7,13 @@ RUN npm install
 
 COPY . /app
 RUN npm run build
+
+FROM build as test
+
+CMD ["npm", "test"]
+
+FROM nginx:1.17.8-alpine as deploy
+
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
