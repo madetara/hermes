@@ -1,4 +1,4 @@
-name: "Frontend"
+name: "Frontend CI"
 
 on:
   push:
@@ -6,11 +6,17 @@ on:
       - "client/**"
       - ".github/workflows/frontend-ci.yaml"
 
+  pull_request:
+    branches:
+      - rc
+
 jobs:
-  build_job:
-    name: Build in docker
+  build_and_test_job:
+    name: Build and test in docker
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        run: docker build -t hermes-front client
+        run: docker build -t hermes-test --target test client
+      - name: Test
+        run: docker run --rm hermes-test
