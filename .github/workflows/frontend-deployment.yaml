@@ -1,0 +1,17 @@
+name: "Frontend deployment"
+
+on:
+  push:
+    branches:
+      - rc
+
+jobs:
+  image_push_job:
+    name: Build and push image
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build hermes-front image
+        run: docker build -t docker.pkg.github.com/madetara/hermes/hermes-front:$GITHUB_RUN_NUMBER --target deploy client
+      - name: Push to registry
+        run: docker push docker.pkg.github.com/madetara/hermes/hermes-front:$GITHUB_RUN_NUMBER
