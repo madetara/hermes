@@ -2,12 +2,12 @@ FROM node:13.8 as build
 
 WORKDIR /app
 COPY package.json /app
-COPY package-lock.json /app
+COPY yarn.lock /app
 
-RUN npm install
+RUN yarn install
 
 COPY . /app
-RUN npm run build
+RUN yarn build
 
 EXPOSE 80
 

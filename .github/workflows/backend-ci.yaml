@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "13.8"
       - name: Install ESLint
-        run: npm i eslint
+        run: yarn add eslint
         working-directory: api/server
       - name: Run ESLint
         run: node_modules/eslint/bin/eslint.js src/**/*.ts
