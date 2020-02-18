@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 RUN npm install
-RUN npm test
 
 COPY . /app
+RUN npm test
 RUN npm run build
