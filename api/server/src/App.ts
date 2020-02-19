@@ -1,21 +1,19 @@
-import * as express from "express";
+import * as fastify from "fastify";
 
 class App {
-    public app: express.Application;
+    public app: fastify.FastifyInstance;
 
     constructor() {
-        this.app = express.default();
+        this.app = fastify.default({
+            logger: true
+        });
         this.mountRoutes();
     }
 
     private mountRoutes(): void {
-        const router = express.Router();
-        router.get("/", (_, res) => {
-            res.json({
-                message: "Hello, World!"
-            });
+        this.app.get("/", async (_, res) => {
+            res.send("Hello, world!");
         });
-        this.app.use("/", router);
     }
 }
 
