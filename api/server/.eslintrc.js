@@ -14,11 +14,10 @@ module.exports = {
         'node'
     ],
     extends: [
-        'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:node/recommended',
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "eslint:recommended",
     ],
     env: {
         "node": true,
