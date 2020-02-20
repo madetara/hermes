@@ -1,23 +1,23 @@
-import { Types } from "./types";
+import { DocumentId, UserId, Content, createDocumentId } from "./types";
 
 export class Document {
-    public documentId: Types.DocumentId;
+    public documentId: DocumentId;
 
-    public ownerId: Types.UserId;
+    public ownerId: UserId;
 
-    public content: Types.Content;
+    public content: Content;
 
     private constructor(
-        documentId: Types.DocumentId,
-        ownerId: Types.UserId,
-        content: Types.Content
+        documentId: DocumentId,
+        ownerId: UserId,
+        content: Content
     ) {
         this.documentId = documentId;
         this.ownerId = ownerId;
         this.content = content;
     }
 
-    public static createNew(owner: Types.UserId) {
-        return new Document(Types.createDocumentId(), owner, "");
+    public static createNew(owner: UserId): Document {
+        return new Document(createDocumentId(), owner, "");
     }
 }

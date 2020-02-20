@@ -2,7 +2,7 @@ import app from "./App";
 
 const port: number = Number(process.env.PORT) || 80;
 
-const start = async () => {
+const start = async (): Promise<void> => {
     try {
         await app.listen(port);
         app.log.info(`listening on port ${port}`);

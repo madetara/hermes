@@ -1,21 +1,21 @@
-import { Types } from "./types";
+import { UserId, Email, DocumentId, createUserId } from "./types";
 
 export class User {
-    public id: Types.UserId;
-    public email: Types.Email;
-    public ownedDocuments: Types.DocumentId[];
+    public id: UserId;
+    public email: Email;
+    public ownedDocuments: DocumentId[];
 
     private constructor(
-        id: Types.UserId,
-        email: Types.Email,
-        ownedDocuments: Types.DocumentId[]
+        id: UserId,
+        email: Email,
+        ownedDocuments: DocumentId[]
     ) {
         this.id = id;
         this.email = email;
         this.ownedDocuments = ownedDocuments;
     }
 
-    public static CreateNew(email: Types.Email): User {
-        return new User(Types.createUserId(), email, []);
+    public static CreateNew(email: Email): User {
+        return new User(createUserId(), email, []);
     }
 }
