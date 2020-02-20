@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    parser: '@typescript-eslint/parser',
+    parser: "@typescript-eslint/parser",
     parserOptions: {
         "ecmaVersion": 6,
         "sourceType": "module",
@@ -9,13 +9,13 @@ module.exports = {
         }
     },
     plugins: [
-        '@typescript-eslint',
+        "@typescript-eslint",
         "prettier",
-        'node'
+        "node"
     ],
     extends: [
-        'plugin:@typescript-eslint/eslint-recommended',
-        'plugin:@typescript-eslint/recommended',
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
         "eslint:recommended",
     ],
