@@ -11,22 +11,33 @@ module.exports = {
     plugins: [
         "@typescript-eslint",
         "prettier",
-        "node"
+        "node",
+        "jest",
+        "jest-formatting"
     ],
     extends: [
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
-        "eslint:recommended",
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-formatting/recommended",
+        "eslint:recommended"
     ],
     env: {
         "node": true,
-        "es6": true
+        "es6": true,
+        "jest/globals": true
     },
     "rules": {
         "prettier/prettier": "error",
         "node/no-missing-import": ["error", {
             "tryExtensions": [".js", ".json", ".node", ".ts"]
-        }]
+        }],
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
     }
 };
