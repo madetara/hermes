@@ -9,6 +9,12 @@ RUN yarn install
 COPY . /app
 RUN yarn build
 
+FROM build as test
+
+CMD ["yarn", "test"]
+
+FROM build as deploy
+
 EXPOSE 80
 
 CMD ["node", "/app/dist"]
