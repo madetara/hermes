@@ -8,16 +8,7 @@
   </div>
 </template>
 
-<script>
-import NewDocument from "./NewDocument/NewDocument.vue";
-
-export default {
-  name: "index",
-  components: {
-    NewDocument
-  }
-};
-</script>
+<script lang="ts" src="./index.ts"></script>
 
 <style>
 .title {

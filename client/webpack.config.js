@@ -17,10 +17,21 @@ module.exports = {
     historyApiFallback: true
   },
   module: {
-    rules: [
+    rules: [      
+      {
+        test: /\.ts?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
+      },
       {
         test: /\.vue$/,
-        loader: "vue-loader"
+        loader: "vue-loader",
+        options: {
+          esModule: true
+        }
       },
       {
         test: /\.css$/,

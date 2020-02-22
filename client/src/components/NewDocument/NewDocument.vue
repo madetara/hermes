@@ -2,16 +2,7 @@
   <div class="A4" contenteditable="true"></div>
 </template>
 
-<script>
-export default {
-  name: "NewDocument",
-  data() {
-    return {
-      count: 0
-    };
-  }
-};
-</script>
+<script lang="ts" src="./NewDocument.ts"></script>
 
 <style>
 .A4 {
