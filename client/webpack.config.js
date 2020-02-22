@@ -17,7 +17,13 @@ module.exports = {
     historyApiFallback: true
   },
   module: {
-    rules: [      
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.(js|ts|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.ts?$/,
         loader: 'ts-loader',
