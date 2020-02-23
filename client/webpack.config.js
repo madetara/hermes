@@ -5,7 +5,7 @@ const { HotModuleReplacementPlugin } = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: join(__dirname, "/src/app.js"),
+  entry: join(__dirname, "/src/app.ts"),
   output: {
     path: join(__dirname, "build"),
     filename: "app.bundled.js"
@@ -40,8 +40,8 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ["vue-style-loader", "css-loader"]
+        test: /\.(css|less)$/,
+        use: ["vue-style-loader", "css-loader", "less-loader"]
       }
     ]
   },

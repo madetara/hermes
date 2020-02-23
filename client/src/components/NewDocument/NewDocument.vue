@@ -11,5 +11,6 @@
   height: 29.7cm;
   padding: 1cm;
   font-size: 20px;
+  background: #fff;
 }
 </style>
