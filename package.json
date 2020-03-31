@@ -2,6 +2,7 @@
   "name": "hermes",
   "description": "Web application designed for easy and collaborative markdown files editing.",
   "license": "GPL-3.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/madetara/hermes.git"
